@@ -1,12 +1,22 @@
 <template>
     <div class="backdrop">
-        <div class="first">
+        <div class="first" :class="{ sale: theme === 'sale'}">
             <p>
                 First
             </p>
+            <h1>{{ header }}</h1>
+            <p> {{ text }} </p>
+
         </div>
     </div>
 </template>
+
+<script>
+export default {
+    props: ['header', 'text', 'theme'] 
+}
+</script>
+
 
 <style>
 .first {
@@ -23,5 +33,12 @@
     background: rgb(161, 219, 186);
     width: 20%;
     height: 20%;
+}
+.first.sale {
+    background: black;
+    color: pink;
+}
+.first.sale h1 {
+    color: blue;
 }
 </style>
