@@ -1,15 +1,29 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <h1>
+    {{title}}
+    <input type="text" ref="name">
+    <button @click="handleClick"> Click Me </button>
+  </h1>
+  <First />
+
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import First from './components/FirstComponent.vue'
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+  components: { First },
+  data() {
+    return {
+      title: "First Vue app"
+    }
+  },
+  methods: {
+    handleClick(){
+      this.$refs.name.classList.add('active')
+
+    }
   }
 }
 </script>
@@ -22,5 +36,10 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+h1 {
+  border-bottom: 3px solid rgb(141, 40, 40);
+  display: inline-block;
+  padding-bottom: 10px;
 }
 </style>
