@@ -4,7 +4,7 @@
     <input type="text" ref="name">
     <button @click="handleClick"> Click Me </button>
   </h1>
-  <First />
+  <First header="this is for testing props" :text="text" theme="sale"/>
 
 </template>
 
@@ -16,7 +16,8 @@ export default {
   components: { First },
   data() {
     return {
-      title: "First Vue app"
+      title: "First Vue app",
+      text: "from data binding"
     }
   },
   methods: {
