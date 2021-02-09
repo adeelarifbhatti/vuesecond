@@ -7,7 +7,9 @@
             <h1>{{ header }}</h1>
             <p> {{ text }} </p>
         </div>
+        <slot></slot>
      </div>
+     <slot name="links"> </slot>
 </template>
 
 <script>

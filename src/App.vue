@@ -5,7 +5,12 @@
       <input type="text" ref="name">
       <button @click="handleClick"> Click Me </button>    
     </h1>
-    <First header="this is for testing props" :text="text" theme="sale" @close="showFirstComponent"/>
+    <First header="this is for testing props" :text="text" theme="sale" @close="showFirstComponent">
+      <p> This is slot testing </p>
+      <template v-slot:links>
+        <a href="#"> sign in</a>
+      </template>
+    </First>
   </div>
   <button @click="showFirstComponent" v-if="!showFirst"> open </button>
 </template>
