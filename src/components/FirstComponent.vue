@@ -6,7 +6,6 @@
             </p>
             <h1>{{ header }}</h1>
             <p> {{ text }} </p>
-
         </div>
         <button @click="closeFirst"> Close </button>
     </div>
@@ -25,21 +24,22 @@ export default {
 
 
 <style>
+
+.backdrop {
+    position: relative;
+    background: rgb(161, 219, 186);
+    width: 45vh;
+    height: 40vh;
+}
 .first {
-    width: 82%;
-    padding: 20px;
-    margin: 50px auto;
+    position: absolute;
+    top: 10%;
+    right: 2%;
+    left: 2%;
+    bottom: 20%;
     background: black;
     border-radius: 10px;
     color: yellow; 
-}
-.backdrop {
-    top: 0;
-    margin: 20px auto;
-    position: fixed;
-    background: rgb(161, 219, 186);
-    width: 20%;
-    height: 80%;
 }
 .first.sale {
     background: black;
