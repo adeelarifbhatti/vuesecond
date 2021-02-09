@@ -1,5 +1,5 @@
 <template>
-    <div class="backdrop" >
+    <div class="backdrop" @click.self="closeFirst">
         <div class="first" :class="{ sale: theme === 'sale'}">
             <p>
                 First
@@ -7,8 +7,7 @@
             <h1>{{ header }}</h1>
             <p> {{ text }} </p>
         </div>
-        <button @click="closeFirst"> Close </button>
-    </div>
+     </div>
 </template>
 
 <script>
