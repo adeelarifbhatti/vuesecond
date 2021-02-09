@@ -1,11 +1,13 @@
 <template>
-  <h1>
-    {{title}}
-    <input type="text" ref="name">
-    <button @click="handleClick"> Click Me </button>
-  </h1>
-  <First header="this is for testing props" :text="text" theme="sale"/>
-
+  <div v-if="showFirst">
+    <h1>  
+      {{title}}    
+      <input type="text" ref="name">
+      <button @click="handleClick"> Click Me </button>    
+    </h1>
+    <First header="this is for testing props" :text="text" theme="sale" @close="showFirstComponent"/>
+  </div>
+  <button @click="showFirstComponent" v-if="!showFirst"> open </button>
 </template>
 
 <script>
@@ -17,13 +19,17 @@ export default {
   data() {
     return {
       title: "First Vue app",
-      text: "from data binding"
+      text: "from data binding",
+      showFirst: false
     }
   },
   methods: {
     handleClick(){
       this.$refs.name.classList.add('active')
 
+    },
+    showFirstComponent(){
+      this.showFirst= !this.showFirst;
     }
   }
 }
@@ -41,6 +47,6 @@ export default {
 h1 {
   border-bottom: 3px solid rgb(141, 40, 40);
   display: inline-block;
-  padding-bottom: 10px;
+  padding-bottom: 1px;
 }
 </style>
