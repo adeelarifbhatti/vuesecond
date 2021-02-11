@@ -1,18 +1,32 @@
 <template>
-  <div v-if="showFirst">
-    <h1>  
-      {{title}}    
+  <div   v-if="showFirst">
+     <!-- {{title}}    
       <input type="text" ref="name">
-      <button @click="handleClick"> Click Me </button>    
-    </h1>
+      <button @click="handleClick"> Sign in </button>   
+      --> 
+    
     <First header="this is for testing props" :text="text" theme="sale" @close="showFirstComponent">
-      <p> This is slot testing </p>
+      
+      <p> Signing Up  </p>
       <template v-slot:links>
-        <a href="#"> sign in</a>
+        
       </template>
     </First>
   </div>
-  <button @click="showFirstComponent" v-if="!showFirst"> open </button>
+<!-- ############################################################################################### -->
+  <div   v-if="showFirst2">
+    <First header="this is for testing props" :text="text" theme="sale" @close="showFirstComponent2">
+      
+      <p> Signing in  </p>
+      <template v-slot:links>
+        
+      </template>
+    </First>
+  </div>
+
+
+  <button @click="showFirstComponent" v-if="!showFirst"> SignUp </button>
+   <button @click="showFirstComponent2" v-if="!showFirst2"> SignIn </button>
 </template>
 
 <script>
@@ -25,7 +39,8 @@ export default {
     return {
       title: "First Vue app",
       text: "from data binding",
-      showFirst: false
+      showFirst: false,
+      showFirst2: false
     }
   },
   methods: {
@@ -34,6 +49,11 @@ export default {
 
     },
     showFirstComponent(){
+      this.showFirst2= !this.showFirst2;
+      this.showFirst= !this.showFirst2;
+    },
+        showFirstComponent2(){
+      this.showFirst2= !this.showFirst2;
       this.showFirst= !this.showFirst;
     }
   }
@@ -54,4 +74,5 @@ h1 {
   display: inline-block;
   padding-bottom: 1px;
 }
+
 </style>

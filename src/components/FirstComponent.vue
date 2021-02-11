@@ -1,12 +1,15 @@
 <template>
-    <div class="backdrop" @click.self="closeFirst">
+    <div class="backdrop" >
         <div class="first" :class="{ sale: theme === 'sale'}">
             <p>
                 First
             </p>
             <h1>{{ header }}</h1>
             <p> {{ text }} </p>
+            <button @click="closeFirst"> Close </button>
+            
         </div>
+            
         <slot></slot>
      </div>
      <slot name="links"> </slot>
@@ -18,6 +21,7 @@ export default {
     methods: {
         closeFirst(){
             this.$emit('close');
+            console.log("Close");
         }
     }
 }
@@ -31,6 +35,7 @@ export default {
     background: rgb(161, 219, 186);
     width: 45vh;
     height: 40vh;
+    margin: auto;
 }
 .first {
     position: absolute;
