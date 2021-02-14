@@ -1,5 +1,8 @@
 <template>
-    <div class="block" v-if="showBlock" @click="stopTimer()"> </div>  
+    <div class="block" v-if="showBlock" @click="stopTimer()">
+
+    </div>  
+
 </template>
 <script>
 export default {
@@ -37,19 +40,18 @@ export default {
             clearInterval(this.startTime);
             console.log("Time taken to click is", this.endTime);
             this.showBlock=false;
+            this.$emit("end",this.endTime);
         }
     }  
 }
 </script>
-
 <style>
 .block {
-    width: 700px;
+    width: 800px;
     border-radius: 20px;
     background: green;
-    padding: 100px 0;
+    padding: 10px 0;
     margin: 40px auto;
-
 }
 
 </style>
