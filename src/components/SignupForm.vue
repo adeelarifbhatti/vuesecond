@@ -1,8 +1,11 @@
 <template>
-<form>
+<form  @submit.prevent="submitting" >
     <label> Email: </label>
     <input type="email required" v-model="email">
     <label> password: </label>
+        <div v-if="passwordError" class="error">
+    Password should be 5 characters long    
+     </div>
     <input type="email required" v-model="password">
     <p>
         Email: {{email}}
@@ -10,6 +13,7 @@
     <p>
         password: {{password}}
     </p>
+
     <p>
         role: {{role}}
     </p>
@@ -30,8 +34,10 @@
     <label>Skills:</label>
     <input type="text" v-model="tempSkill" @keyup="addSkill">
     <div v-for="skill in skills" :key="skill" class="pill">
-        {{skill}}
-
+        <span @click="deleteSkill(skill)">{{skill}}</span> 
+    </div>
+    <div class="submit">
+        <button> Create Account</button>
     </div>
 
 
@@ -48,7 +54,8 @@ export default {
             role: '',
             terms: false,
             tempSkill: '',
-            skills: []
+            skills: [],
+            passwordError: ''
         }
     },
     methods: {
@@ -59,6 +66,18 @@ export default {
                 }
                 this.tempSkill='';
             }
+        },
+        deleteSkill(skill){
+            this.skills = this.skills.filter(item => {
+                return skill !==item
+            });
+        },
+        submitting(){
+            this.passwordError = this.password.length >5 ? '': "Password should be more this 5 characters"
+            if(!this.passwordError){
+            console.log("submiting");
+            }
+
         }
     }
 }
@@ -97,6 +116,26 @@ input[type="checkbox"] {
     margin: 0 10px 0 0;
     position: relative;
     top: 2px;
+}
+.pill  {
+    margin-top: 10px;
+    display: inline;
+    background: grey;
+}
+button {
+    background: blue;
+    border: 0;
+    padding: 10px 20px;
+    margin-top: 20px;
+    color: white;
+    border-radius: 20px;
+}
+.submit {
+    text-align: center;
+}
+.error {
+    background: red;
+    font-style: italic;
 }
 
 </style>
