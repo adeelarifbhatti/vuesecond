@@ -1,8 +1,8 @@
 <template>
     <h1> Jobs </h1>
-    <div v-for="job in jobs" :key="job.id" class=job> 
-        <router-link :to="{ name: 'JobsDetails',params: {id: job.id}}">
-        {{job.title}}
+    <div v-for="course in courses" :key="course.id" class=job> 
+        <router-link :to="{ name: 'JobsDetails',params: {id: course.name}}">
+        {{course}}
         </router-link>
 
     </div>
@@ -13,13 +13,18 @@
 export default {
     data() {
         return {
-            jobs: [
-                
-                   { title: "System Admin", id: 1, details: 'lorem'},
-                   { title: "System Admin", id: 2, details: 'lorem'},
-                   { title: "System Admin", id: 3, details: 'lorem'}
-            ]
+            courses: [ ]
         }
+    },
+    mounted() {
+        fetch('http://mol.uio.no/api/v1/courses',{'method': 'get',
+        headers: {
+            'content-type': 'application/json'
+         }
+        })
+        .then(res => res.json())
+        .then(data => this.courses =data)
+        .catch(err => console.log(err.message))
     }
 
 }
