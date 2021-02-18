@@ -8,6 +8,6 @@ services:
   -   ./src:/usr/src/app/src
   -   ./public:/usr/src/app/public
   -   ./vue.config.js:/usr/src/app/vue.config.js
-  -   ./package.json.js:/usr/src/app/package.json
+  -   ./package.json:/usr/src/app/package.json
   ports:
   -  "81:8080"
