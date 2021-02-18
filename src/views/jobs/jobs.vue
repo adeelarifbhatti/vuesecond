@@ -1,19 +1,17 @@
 <template>
     <h1> Jobs </h1>
     <div v-for="course in courses" :key="course.id" class=job> 
-        <router-link :to="{ name: 'JobsDetails',params: {id: course.name}}">
-        {{course}}
+        <router-link :to="{ name: 'JobsDetails',params: {id: course.id}}">
+        {{course.name}}        
         </router-link>
-
     </div>
-
 </template>
 
 <script>
 export default {
     data() {
         return {
-            courses: [ ]
+            courses: []
         }
     },
     mounted() {
@@ -23,7 +21,9 @@ export default {
          }
         })
         .then(res => res.json())
-        .then(data => this.courses =data)
+        .then(res => this.courses = res.data.data)
+        // to display the response
+        .then(adeel => {console.log(adeel);})
         .catch(err => console.log(err.message))
     }
 
