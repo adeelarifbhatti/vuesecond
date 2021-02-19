@@ -1,6 +1,6 @@
 <template>
-  <h1>Job Details</h1>
-  <p> This is the jobs id {{id}}  </p>
+  <h1>Course Details</h1>
+  <p> Course ID {{id}}  </p>
 </template>
 
 <script>

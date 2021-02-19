@@ -2,7 +2,7 @@
   <div id="nav">
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link>
-    <router-link :to="{ name: 'Jobs' }">Jobs</router-link>
+    <router-link :to="{ name: 'Courses' }">Jobs</router-link>
   </div>
   <button @click="redirect"> Redirect </button>
   <button @click="back"> Back </button>

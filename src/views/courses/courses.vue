@@ -1,7 +1,7 @@
 <template>
-    <h1> Jobs </h1>
+    <h1> Courses </h1>
     <div v-for="course in courses" :key="course.id" class=job> 
-        <router-link :to="{ name: 'JobsDetails',params: {id: course.id}}">
+        <router-link :to="{ name: 'cdetails',params: {id: course.id}}">
         {{course.name}}        
         </router-link>
     </div>
